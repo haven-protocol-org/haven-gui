@@ -65,7 +65,7 @@ source ./utils.sh
 pushd $(pwd)
 ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 MONERO_DIR=monero
-MONEROD_EXEC=monerod
+MONEROD_EXEC=havend
 
 MAKE='make'
 if [[ $platform == *bsd* ]]; then
@@ -93,9 +93,9 @@ if [ "$ANDROID" != true ] && ([ "$platform" == "linux32" ] || [ "$platform" == "
 fi
 
 if [ "$platform" == "darwin" ]; then
-    BIN_PATH=$BIN_PATH/monero-wallet-gui.app/Contents/MacOS/
+    BIN_PATH=$BIN_PATH/haven-wallet-gui.app/Contents/MacOS/
 elif [ "$platform" == "mingw64" ] || [ "$platform" == "mingw32" ]; then
-    MONEROD_EXEC=monerod.exe
+    MONEROD_EXEC=havend.exe
 fi
 
 # force version update
@@ -111,7 +111,7 @@ if ! QMAKE=$(find_command qmake qmake-qt5); then
     echo "Failed to find suitable qmake command."
     exit 1
 fi
-$QMAKE ../monero-wallet-gui.pro "$CONFIG" || exit
+$QMAKE ../haven-wallet-gui.pro "$CONFIG" || exit
 $MAKE || exit 
 
 # Copy monerod to bin folder

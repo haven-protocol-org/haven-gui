@@ -45,7 +45,7 @@ import "js/Windows.js" as Windows
 
 ApplicationWindow {
     id: appWindow
-    title: "Monero"
+    title: "Haven"
 
     property var currentItem
     property bool hideBalanceForced: false
@@ -1325,7 +1325,7 @@ ApplicationWindow {
                 PropertyChanges { target: titleBar; basicButtonVisible: false }
                 PropertyChanges { target: titleBar; showMaximizeButton: true }
                 PropertyChanges { target: titleBar; visible: true }
-                PropertyChanges { target: titleBar; title: qsTr("Monero") + translationManager.emptyString }
+                PropertyChanges { target: titleBar; title: qsTr("Haven") + translationManager.emptyString }
             }, State {
                 name: "normal"
                 PropertyChanges { target: leftPanel; visible: (isMobile)? false : true }
@@ -1906,7 +1906,7 @@ ApplicationWindow {
           var hash = parts[1]
           var user_url = parts[2]
           var auto_url = parts[3]
-          var msg = qsTr("New version of monero-wallet-gui is available: %1<br>%2").arg(version).arg(user_url) + translationManager.emptyString
+          var msg = qsTr("New version of haven-wallet-gui is available: %1<br>%2").arg(version).arg(user_url) + translationManager.emptyString
           notifier.show(msg)
         }
         else {
@@ -1978,11 +1978,11 @@ ApplicationWindow {
     function getDefaultDaemonRpcPort(networkType) {
         switch (networkType) {
             case NetworkType.STAGENET:
-                return 38081;
+                return 37750;
             case NetworkType.TESTNET:
-                return 28081;
+                return 27750;
             default:
-                return 18081;
+                return 17750;
         }
     }
 

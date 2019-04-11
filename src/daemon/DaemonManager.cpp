@@ -78,7 +78,7 @@ bool DaemonManager::start(const QString &flags, NetworkType::Type nettype, const
 
     arguments << "--max-concurrency" << QString::number(concurrency);
 
-    qDebug() << "starting monerod " + m_monerod;
+    qDebug() << "starting havend " + m_monerod;
     qDebug() << "With command line arguments " << arguments;
 
     m_daemon = new QProcess();
@@ -304,9 +304,9 @@ DaemonManager::DaemonManager(QObject *parent)
 
     // Platform depetent path to monerod
 #ifdef Q_OS_WIN
-    m_monerod = QApplication::applicationDirPath() + "/monerod.exe";
+    m_monerod = QApplication::applicationDirPath() + "/havend.exe";
 #elif defined(Q_OS_UNIX)
-    m_monerod = QApplication::applicationDirPath() + "/monerod";
+    m_monerod = QApplication::applicationDirPath() + "/havend";
 #endif
 
     if (m_monerod.length() == 0) {

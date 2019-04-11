@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
 
     // Log settings
     const QString logPath = getLogPath(parser.value(logPathOption));
-    Monero::Wallet::init(argv[0], "monero-wallet-gui", logPath.toStdString().c_str(), true);
+    Monero::Wallet::init(argv[0], "haven-wallet-gui", logPath.toStdString().c_str(), true);
     qInstallMessageHandler(messageHandler);
 
 
@@ -286,7 +286,7 @@ int main(int argc, char *argv[])
 
     if (!moneroAccountsRootDir.empty())
     {
-        QString moneroAccountsDir = moneroAccountsRootDir.at(0) + "/Monero/wallets";
+        QString moneroAccountsDir = moneroAccountsRootDir.at(0) + "/Haven/wallets";
         engine.rootContext()->setContextProperty("moneroAccountsDir", moneroAccountsDir);
     }
 
