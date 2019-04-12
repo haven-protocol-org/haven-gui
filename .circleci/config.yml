@@ -1,0 +1,42 @@
+tagged-build: &tagged-build
+  filters:
+    tags:
+      only: /.*/
+    branches:
+      ignore: /.*/
+
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: ubuntu:18.04
+    steps:
+      - checkout
+
+      - run:
+          name: Install Build Deps
+          command: |
+            apt-get update
+            apt-get --no-install-recommends --yes install git ca-certificates  build-essential cmake libboost-all-dev miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libzmq3-dev libsodium-dev libhidapi-dev
+            apt-get --no-install-recommends --yes install qtbase5-dev qt5-default qtdeclarative5-dev qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-dialogs qml-module-qtquick-xmllistmodel qml-module-qt-labs-settings qml-module-qt-labs-folderlistmodel qttools5-dev-tools qml-module-qtquick-templates2
+
+      - run:
+          name: Build and Package Haven GUI
+          command: |
+            git submodule init
+            git submodule update
+            QT_SELECT=5 ./build.sh release-static
+            tar -czvf haven-linux-x64-$(git describe --tags)-gui.tar.gz build/release/bin
+            cp haven-linux-x64-$(git describe --tags)-gui.tar.gz build/release/bin
+
+      - store_artifacts:
+         path: build/release/bin/
+
+workflows:
+  version: 2
+  build_cli_from_branch:
+    jobs:
+      - build
+  build_cli_from_tag:
+    jobs:
+      - build: *tagged-build
