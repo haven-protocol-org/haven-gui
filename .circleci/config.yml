@@ -10,6 +10,9 @@ jobs:
   build:
     docker:
       - image: ubuntu:18.04
+    environment:
+      CXXFLAGS: '-fPIC'
+      CFLAGS: '-fPIC'
     steps:
       - checkout
 
