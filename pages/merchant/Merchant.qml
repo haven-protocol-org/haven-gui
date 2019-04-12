@@ -450,7 +450,7 @@ Item {
                         font.pixelSize: 14 * scaleRatio
                         font.bold: false
                         color: "white"
-                        text: qsTr("Amount to receive") + " (XMR)"
+                        text: qsTr("Amount to receive") + " (XHV)"
                     }
 
                     Image {

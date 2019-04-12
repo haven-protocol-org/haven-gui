@@ -18,13 +18,13 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>monero-wallet-gui</string>
+  <string>haven-wallet-gui</string>
   
   <key>CFBundleName</key>
-  <string>Monero GUI</string>
+  <string>Haven GUI</string>
 
   <key>CFBundleIdentifier</key>
-  <string>org.monero-project.monero-wallet-gui</string>
+  <string>org.haven-protocol-org.haven-wallet-gui</string>
 
   <key>NSSupportsAutomaticGraphicsSwitching</key>
   <true/>

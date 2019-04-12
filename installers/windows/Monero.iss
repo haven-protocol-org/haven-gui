@@ -3,14 +3,14 @@
 ; See LICENSE
 
 [Setup]
-AppName=Monero GUI Wallet
+AppName=Haven GUI Wallet
 ; For InnoSetup this is the property that uniquely identifies the application as such
 ; Thus it's important to keep this stable over releases
 ; With a different "AppName" InnoSetup would treat a mere update as a completely new application and thus mess up
 
 AppVersion=0.14.0.0
-DefaultDirName={pf}\Monero GUI Wallet
-DefaultGroupName=Monero GUI Wallet
+DefaultDirName={pf}\Haven GUI Wallet
+DefaultGroupName=Haven GUI Wallet
 UninstallDisplayIcon={app}\haven-wallet-gui.exe
 PrivilegesRequired=admin
 ArchitecturesInstallIn64BitMode=x64
@@ -19,8 +19,8 @@ WizardSmallImageFile=WizardSmallImage.bmp
 WizardImageFile=WelcomeImage.bmp
 DisableWelcomePage=no
 LicenseFile=LICENSE
-AppPublisher=The Monero Developer Community
-AppPublisherURL=https://getmonero.org
+AppPublisher=The Haven Protocol Team
+AppPublisherURL=https://havenprotocol.com
 
 UsedUserAreasWarning=no
 ; The above directive silences the following compiler warning:

@@ -117,7 +117,7 @@ ColumnLayout {
             }
 
             TextArea {
-                text: qsTr("Additionally, you may specify a bootstrap node to use Monero immediately.") + translationManager.emptyString
+                text: qsTr("Additionally, you may specify a bootstrap node to use Haven immediately.") + translationManager.emptyString
                 Layout.topMargin: 4 * scaleRatio
                 Layout.fillWidth: true
 
