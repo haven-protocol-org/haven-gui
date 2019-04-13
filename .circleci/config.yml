@@ -28,11 +28,6 @@ jobs:
           command: |
             git submodule init
             git submodule update
-            free
-            dd if=/dev/zero of=/var/swap.img bs=1024k count=1000
-            mkswap /var/swap.img
-            swapon /var/swap.img
-            free
             QT_SELECT=5 ./build.sh release-static
             tar -czvf haven-linux-x64-$(git describe --tags)-gui.tar.gz build/release/bin
             cp haven-linux-x64-$(git describe --tags)-gui.tar.gz build/release/bin
