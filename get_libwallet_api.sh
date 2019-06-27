@@ -17,7 +17,7 @@ if [ ! -d $MONERO_DIR/src ]; then
 fi
 git submodule update --remote
 git -C $MONERO_DIR fetch
-git -C $MONERO_DIR checkout origin/release-v0.13
+git -C $MONERO_DIR checkout origin/v0.14.1-release
 
 # get monero core tag
 pushd $MONERO_DIR
@@ -51,14 +51,14 @@ git -C $MONERO_DIR submodule init
 git -C $MONERO_DIR submodule update
 
 # Build libwallet if it doesnt exist
-if [ ! -f $MONERO_DIR/lib/libwallet_merged.a ]; then 
+if [ ! -f $MONERO_DIR/lib/libwallet_merged.a ]; then
     echo "libwallet_merged.a not found - Building libwallet"
     BUILD_LIBWALLET=true
 # Build libwallet if no previous version file exists
-elif [ ! -f $MONERO_DIR/version.sh ]; then 
+elif [ ! -f $MONERO_DIR/version.sh ]; then
     echo "monero/version.h not found - Building libwallet"
     BUILD_LIBWALLET=true
-## Compare previously built version with submodule + merged PR's version. 
+## Compare previously built version with submodule + merged PR's version.
 else
     source $MONERO_DIR/version.sh
     # compare submodule version with latest build
@@ -178,7 +178,7 @@ elif [ "$platform" == "linuxarmv7" ]; then
         cmake -D BUILD_TESTS=OFF -D ARCH="armv7-a" -D -D BUILD_64=OFF  -D BUILD_GUI_DEPS=ON $BUILD_TREZOR_FLAGS -D CMAKE_INSTALL_PREFIX="$MONERO_DIR"  ../..
     fi
 
-## LINUX other 
+## LINUX other
 elif [ "$platform" == "linux" ]; then
     echo "Configuring build for Linux general"
     if [ "$STATIC" == true ]; then
